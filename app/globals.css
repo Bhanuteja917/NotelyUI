@@ -1,33 +1,30 @@
+/* Implementing a color scheme in Tailwind CSS using variables and media query for dark mode. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply font-normal font-sans;
+  font-size: 16px;
+  font-kerning: 0.5px; 
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.container {
+  @apply bg-white rounded-lg 
 }
+
+.inner-container {
+  @apply relative grid justify-center top-1/2
+}
+
+input {
+  @apply bg-gray-200 focus-visible:outline-none
+}
+/* input {
+  @apply bg-gray-200 h-10 rounded-lg py-3 ps-3
+  text-gray-900/90
+  placeholder:text-gray-900/60 
+  border border-black/10
+  focus-visible:outline-none 
+focus-visible:border-blue-400;
+} */

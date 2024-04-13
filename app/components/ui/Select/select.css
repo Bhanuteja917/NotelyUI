@@ -1,0 +1,38 @@
+.dropdown {
+    width: 190px;
+    @apply relative;
+}
+
+.dropdown-btn {
+    @apply bg-gray-200 h-10 rounded-lg
+    text-gray-900/90
+    border border-black/10
+    font-sans px-3
+    flex flex-col justify-center
+    cursor-pointer;   
+}
+
+.dropdown-btn-text {
+   @apply flex justify-between
+}
+
+.dropdown-content {
+    @apply bg-gray-200 rounded-lg absolute w-full 
+    top-full mt-1 py-1
+    flex flex-col
+    text-gray-900/90
+    border border-black/10
+    font-sans;
+}
+
+.dropdown-item {
+    @apply cursor-pointer w-full hover:bg-black/15;
+}
+
+.dropdown-item-text {
+    @apply px-3 py-2;
+}
+
+.dropdown-item:last-child {
+    @apply pb-0
+}

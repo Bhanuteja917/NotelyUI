@@ -1,0 +1,18 @@
+.button-base {
+    @apply  py-3 px-4 cursor-pointer font-medium;
+    border-radius: 56px;
+    font-size: 16px;
+    font-kerning: 1.25px;
+  }
+  
+  .button-primary {
+    @apply button-base text-white bg-blue-400 hover:bg-blue-500;
+  }
+  
+  .button-ghost {
+    @apply button-base bg-none text-gray-600 hover:text-gray-900/85; 
+  }
+  
+  .button-danger {
+    @apply button-base text-white bg-none bg-red-400 hover:bg-red-500 ; 
+  }

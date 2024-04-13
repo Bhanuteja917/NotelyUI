@@ -1,0 +1,24 @@
+.card {
+    @apply flex flex-col p-4 gap-4
+    shadow-2xl rounded-lg min-w-fit
+}
+
+.card-header {
+    @apply  flex justify-between
+}
+
+.card-body {
+    @apply text-gray-900/80
+}
+
+.card-body-title {
+    @apply font-semibold text-xl mb-2
+}
+
+.card-body-content {
+    @apply pb-6
+}
+
+.card-footer {
+    @apply flex flex-row-reverse
+}

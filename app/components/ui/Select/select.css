@@ -7,7 +7,7 @@
     @apply bg-gray-200 h-10 rounded-lg
     text-gray-900/90
     border border-black/10
-    font-sans px-3
+    font-sans px-3 w-full
     flex flex-col justify-center
     cursor-pointer;   
 }

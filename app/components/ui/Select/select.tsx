@@ -1,21 +1,36 @@
-import React, { FC, InputHTMLAttributes, useContext, useState } from "react";
+import React, {
+  FC,
+  InputHTMLAttributes,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./select.css";
 import SelectContextProvider, { SelectContext } from "./selectContectProvider";
 
 interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode;
+  onOptionChange: (value: string) => void;
 }
 
-const Inner: FC<SelectProps> = ({ children }) => {
-  const context = useContext(SelectContext);
-  const [isShown, setShow] = useState(true);
+const Inner: FC<SelectProps> = ({ children, ...props }) => {
+  const { value } = useContext(SelectContext);
+  const [isShown, setShow] = useState(false);
+  const selectRef = useRef<HTMLDivElement | null>(null);
+
+  console.log(selectRef.current?.getBoundingClientRect());
 
   return (
     <>
-      <div className="dropdown" onClick={() => setShow(!isShown)}>
-        <div className="dropdown-btn">
+      <div
+        className={`dropdown ${props.className}`}
+        onClick={() => setShow(!isShown)}
+        ref={selectRef}
+      >
+        <div className={`dropdown-btn`}>
           <div className="dropdown-btn-text">
-            <p>{context!.value}</p>
+            <p>{value}</p>
             <span className="mt-0.5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -38,10 +53,15 @@ const Inner: FC<SelectProps> = ({ children }) => {
   );
 };
 
-const Select: FC<SelectProps> = ({ children }) => {
+const Select: FC<SelectProps> = ({ children, ...props }) => {
+  const firstOption = children?.valueOf() as any[];
+  const defaultValue = firstOption[0]?.props?.children;
   return (
-    <SelectContextProvider>
-      <Inner>{children}</Inner>
+    <SelectContextProvider
+      defaultValue={defaultValue}
+      onOptionChange={props.onOptionChange}
+    >
+      <Inner {...props}>{children}</Inner>
     </SelectContextProvider>
   );
 };

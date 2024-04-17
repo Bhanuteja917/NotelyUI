@@ -10,7 +10,7 @@ const Button: FC<InputProps> = ({ icon, ...props }) => {
       {icon && typeof icon === "string" ? (
         <i className={`${icon} icon shrink-1`}></i>
       ) : (
-        <span className="icon">{icon}</span>
+        icon && <span className="icon">{icon}</span>
       )}
       <input {...props} className="grow-1 w-full rounded-lg" />
     </div>

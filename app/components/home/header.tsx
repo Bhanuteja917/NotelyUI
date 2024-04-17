@@ -1,8 +1,22 @@
-import React from "react";
-import FormField from "../../components/ui/FormField/formField";
-import Button from "../../components/ui/Button/button";
+"use client";
+
+import React, { useState } from "react";
+import "../ui/Button/button.css";
+import FormField from "../ui/FormField/formField";
+import Button from "../ui/Button/button";
+import AddModal from "./addModal";
 
 export default function Header() {
+  const [isAddModalOpen, setAddModalOpen] = useState(false);
+
+  const handleClose = () => {
+    setAddModalOpen(false);
+  };
+
+  const handleAddButtonClick = () => {
+    setAddModalOpen(true);
+  };
+
   return (
     <div className="w-full bg-white shadow-md py-3">
       <div className="flex gap-4 mx-16 lg:mx-28">
@@ -36,9 +50,11 @@ export default function Header() {
               <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
             </svg>
           }
+          onClick={handleAddButtonClick}
         >
           Add
         </Button>
+        <AddModal isOpen={isAddModalOpen} onClose={handleClose}></AddModal>
       </div>
     </div>
   );

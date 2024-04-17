@@ -4,10 +4,10 @@
 
 .input-wrapper {
     @apply flex gap-2 bg-gray-200 
-           rounded-lg border border-black/10
-           focus-visible:outline-none
-           focus-visible:border-blue-400
-           target:border-blue-400 w-9/12
+    rounded-lg border border-black/10
+    focus-visible:outline-none
+  focus-visible:border-blue-400
+  target:border-blue-400 w-9/12
 }
 
 

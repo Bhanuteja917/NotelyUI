@@ -1,5 +1,5 @@
 .button-base {
-    @apply  py-3 px-4 cursor-pointer font-medium;
+    @apply  py-2 px-4 cursor-pointer font-medium;
     border-radius: 56px;
     font-size: 16px;
     font-kerning: 1.25px;

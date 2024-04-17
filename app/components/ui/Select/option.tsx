@@ -6,14 +6,14 @@ interface OptionProps extends OptionHTMLAttributes<HTMLDivElement> {
   children: string;
 }
 
-const Option: FC<OptionProps> = ({ children, onClick }) => {
-  const context = useContext(SelectContext);
+const Option: FC<OptionProps> = ({ children }) => {
+  const { onOptionSelected } = useContext(SelectContext);
 
   return (
     <div className="dropdown-item">
       <div
         className="dropdown-item-text"
-        onClick={() => context?.setValue(children)}
+        onClick={() => onOptionSelected(children)}
       >
         {children}
       </div>

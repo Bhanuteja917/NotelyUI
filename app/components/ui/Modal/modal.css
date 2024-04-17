@@ -1,0 +1,12 @@
+.modal {
+    @apply relative pt-7 pb-5 px-6 min-w-fit min-h-fit border-0 
+    rounded-lg shadow-lg;
+}
+
+.modal-close-btn {
+    @apply absolute top-7 right-7;
+}
+
+.modal::backdrop {
+    background: hsl(0 0% 0% / 50%);
+  }

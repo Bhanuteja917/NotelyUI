@@ -4,8 +4,11 @@ import Card, { TNote } from "./components/home/Notes/note";
 import TabMenu from "./components/ui/TabMenu/tabMenu";
 import "./globals.css";
 import notesData from "./data/dummyData";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {}, []);
+
   return (
     <>
       <div className="main-body flex flex-col gap-5">
